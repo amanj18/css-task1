@@ -1,0 +1,20 @@
+@mixin gradient-background($start, $end, $image-url) {
+    background: linear-gradient(151deg, $start 30%, $end 68%), url(#{$image-url});
+    background-size: cover;
+    background-blend-mode: overlay;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin responsive-divider($position) {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background-color: $divider-color;
+    right: $position;
+}

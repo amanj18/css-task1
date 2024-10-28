@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'mixins';
+
+.card {
+    @include gradient-background($primary-gradient-start, $primary-gradient-end, $background-image-url);
+    background-size: cover;
+    background-blend-mode: overlay;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}

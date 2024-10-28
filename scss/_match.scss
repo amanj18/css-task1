@@ -1,0 +1,321 @@
+@import 'variables';
+@import 'mixins';
+
+.match-header {
+    display: flex;
+}
+
+.ball-icon {
+    height: 30px;
+    width: 30px;
+}
+
+.match-between {
+    color: $white;
+    text-align: center;
+}
+
+.match-time {
+    display: flex;
+    font-size: 0.8rem;
+    column-gap: 1rem;
+    color: $white;
+    position: relative;
+    &::after {
+        content: "";
+        background-color: $white;
+        height: 80%;
+        width: 1.5px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(50%);
+        margin-top: 1%;
+    }
+}
+
+.live {
+    background-color: $live-bg-color;
+    border-radius: 15px;
+    padding: 0.4rem;
+    width: 5rem;
+    color: $white;
+    font-size: 1rem;
+    border: $live-bg-color;
+}
+
+.match-details {
+    @include flex-center;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    row-gap: 1rem;
+    position: relative;
+    &::after {
+        content: "";
+        background-color: $background-overlay;
+        padding: 1px;
+        width: 90%;
+        position: absolute;
+        bottom: 13%;
+    }
+}
+
+.live-icon {
+    height: 12px;
+    width: 12px;
+    padding-right: 0.5rem;
+}
+
+.match-status {
+    z-index: 1;
+}
+
+.team-details {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+    column-gap: 0.75rem;
+}
+
+.teams {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+    &:last-child {
+        flex-direction: row-reverse;
+    }
+    .team-logo {
+        height: 40px;
+        width: 40px;
+        padding: 0.5rem;
+        background-color: $white;
+        border-radius: 50%;
+        &:first-child {
+            border: 4px solid $highlight-color;
+        }
+    }
+}
+
+.match-played {
+    padding-bottom: 1rem;
+    display: flex;
+    column-gap: 0.5rem;
+    position: relative;
+    color: #f5f5f5a7;
+    &:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        width: 90%;
+        background-color: $background-overlay;
+        padding: 1px;
+        bottom: 25%;
+    }
+    .total-runs {
+        font-size: 1.1rem;
+        &:last-child {
+            color: $white;
+        }
+    }
+    .total-overs {
+        font-size: 0.7rem;
+    }
+}
+
+.team-vs {
+    color: $white;
+    padding: 0.5rem;
+    background-color: $dark-grey;
+    border-radius: 50%;
+}
+
+.result-status {
+    width: 90%;
+    position: relative;
+    &::before,
+    &::after {
+        content: "";
+        background-color: $background-overlay;
+        padding: 1px;
+        width: 100%;
+        position: absolute;
+    }
+}
+
+.score-status {
+    padding: 1rem;
+    color: $white;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.venue {
+    display: flex;
+    column-gap: 1rem;
+    margin-top: 2rem;
+    .stadium-icon {
+        height: 20px;
+        width: 20px;
+    }
+    .venue-name {
+        color: $light-grey;
+        font-size: smaller;
+    }
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 90%;
+    max-width: 100%;
+    .players-role {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+    .player-role {
+        color: $white;
+    }
+    .player-detail {
+        display: flex;
+        justify-content: space-between;
+        background-color: $white;
+        border-radius: 10px;
+        padding: 1rem;
+        position: relative;
+        &::after {
+            @include responsive-divider(50%);
+            height: 1.5rem;
+        }
+    }
+    .player-stats {
+        display: flex;
+        font-weight: bolder;
+        column-gap: 0.3rem;
+        font-size: 0.9rem;
+    }
+    .player-score {
+        color: $highlight-color;
+    }
+}
+
+.news-updates {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .heading {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        .latest-updates {
+            font-weight: bolder;
+        }
+        .see-more {
+            color: $highlight-color;
+            font-size: 0.8rem;
+            font-weight: bolder;
+        }
+    }
+}
+
+.mobile-team-img {
+    height: 60%;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: 90%;
+    margin-bottom: 2rem;
+    .article {
+        &:first-child {
+            background-color: #e2e1e1;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            position: relative;
+            &::after {
+                position: absolute;
+                content: "";
+                width: 100%;
+                border-radius: 2px;
+                height: 3px;
+                background: linear-gradient(90deg, $article-gradient-start -2.04%, $article-gradient-end 102.14%);
+                border-radius: 0 0 10px 10px;
+            }
+            .article-thumbnail {
+                height: 100%;
+                width: 100%;
+                border-radius: 8px;
+            }
+            .article-footer {
+                display: flex;
+                flex-direction: column;
+                padding: 1rem;
+                row-gap: 1rem;
+                .options {
+                    display: flex;
+                    justify-content: space-between;
+                    .share-icon {
+                        height: 20px;
+                        width: 20px;
+                    }
+                }
+                .description {
+                    font-weight: bolder;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+        &:not(:first-child) {
+            background-color: #e2e1e1;
+            display: flex;
+            .article-thumbnail {
+                width: 35%;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 8px;
+                }
+            }
+            .article-footer {
+                display: flex;
+                flex-direction: column;
+                row-gap: 1rem;
+                width: 65%;
+                padding: 1rem;
+                .description {
+                    font-size: 0.7rem;
+                    font-weight: bolder;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .options {
+                    display: flex;
+                    justify-content: space-between;
+                    .news {
+                        color: grey;
+                        font-size: 0.6rem;
+                    }
+                    .share-icon {
+                        height: 15px;
+                        width: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

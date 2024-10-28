@@ -1,0 +1,106 @@
+
+// scss/_media.scss
+@import 'variables';
+@import 'mixins';
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+    .team-logo {
+        height: 80px;
+        width: 80px;
+    }
+    .team-details {
+        column-gap: 7rem;
+    }
+    .result-status::after {
+        width: 0%;
+    }
+    .players {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        column-gap: 1.5rem;
+    }
+    .player-detail {
+        column-gap: 2rem;
+        &::after {
+            @include responsive-divider(10%);
+        }
+    }
+    .articles {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 1rem;
+        .article {
+            &:nth-child(-n+2) {
+                width: calc(50% - 0.5rem);
+                display: flex;
+                flex-direction: column-reverse;
+                position: relative;
+                &::after {
+                    position: absolute;
+                    content: "";
+                    width: 100%;
+                    border-radius: 2px;
+                    height: 3px;
+                    background: linear-gradient(90deg, $article-gradient-start -2.04%, $article-gradient-end 102.14%);
+                    border-radius: 0 0 10px 10px;
+                }
+                .article-footer {
+                    width: 90%;
+                    position: absolute;
+                    color: $white;
+                    background: linear-gradient(0deg, #0F1C70 -4%, rgba(45, 65, 207, 0));
+                    .options {
+                        .news {
+                            color: $white;
+                            font-size: 0.6rem;
+                        }
+                        .share-icon {
+                            height: 15px;
+                            filter: invert(1);
+                            width: 15px;
+                        }
+                    }
+                    .description {
+                        font-weight: bolder;
+                        font-size: 0.6rem;
+                        display: block;
+                        -webkit-box-orient: initial;
+                        -webkit-line-clamp: none;
+                        line-clamp: none;
+                        overflow: visible;
+                        text-overflow: clip;
+                    }
+                }
+                .article-thumbnail {
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 8px;
+                }
+            }
+            &:not(:nth-child(-n+2)) {
+                width: calc(25% - 0.8rem);
+                flex-direction: column-reverse;
+                position: relative;
+                &::after {
+                    position: absolute;
+                    content: "";
+                    width: 100%;
+                    border-radius: 2px;
+                    height: 3px;
+                    background: linear-gradient(90deg, $article-gradient-start -2.04%, $article-gradient-end 102.14%);
+                    border-radius: 0 0 10px 10px;
+                }
+                .article-thumbnail {
+                    height: 60%;
+                    width: 100%;
+                    border-radius: 8px;
+                }
+                .article-footer {
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
